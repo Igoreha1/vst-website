@@ -104,7 +104,7 @@ export default function Home() {
                 <div>
                   <h3 className="text-xl font-semibold mb-2 text-gray-900">Реальное время</h3>
                   <p className="text-gray-600">
-                    Работает с нулевой задержкой - идеально для живого вокала 
+                    Работает с задержкой - идеально для живого вокала 
                     и стриминга
                   </p>
                 </div>
