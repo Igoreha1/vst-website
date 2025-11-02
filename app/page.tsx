@@ -1,65 +1,254 @@
-import Image from "next/image";
+import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-gray-50 to-white text-gray-900 py-20">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
+            Sonic VST
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+          <p className="text-xl md:text-2xl mb-8 text-gray-600 max-w-2xl mx-auto">
+            Искусственный интеллект для профессионального звука
+          </p>
+          <p className="text-lg md:text-xl mb-8 text-gray-500 max-w-3xl mx-auto">
+            Первый VST плагин с нейросетевыми алгоритмами, который автоматически улучшает 
+            вокал и инструменты в реальном времени
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link 
+              href="/download" 
+              className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg text-lg font-semibold text-white transition-colors shadow-lg hover:shadow-xl"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Скачать бесплатно
+            </Link>
+            <Link 
+              href="/about" 
+              className="border border-gray-300 hover:border-blue-400 px-8 py-4 rounded-lg text-lg font-semibold text-gray-700 hover:text-blue-600 transition-colors"
             >
-              Learning
-            </a>{" "}
-            center.
+              Узнать больше
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Features Section */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
+            Мощь искусственного интеллекта
+          </h2>
+          <p className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Нейросеть анализирует и улучшает звук автоматически
+          </p>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* AI Demo Visual */}
+            <div className="relative">
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 shadow-lg">
+                <div className="flex justify-between items-center mb-6">
+                  <div className="text-sm text-gray-500">ДО</div>
+                  <div className="text-sm font-semibold text-green-600">ПОСЛЕ</div>
+                </div>
+                <div className="space-y-4">
+                  <div className="h-4 bg-gray-300 rounded-full overflow-hidden">
+                    <div className="h-full bg-gray-400 animate-pulse" style={{width: '70%'}}></div>
+                  </div>
+                  <div className="h-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full" style={{width: '95%'}}></div>
+                  <div className="h-3 bg-gray-300 rounded-full overflow-hidden">
+                    <div className="h-full bg-gray-400 animate-pulse" style={{width: '60%'}}></div>
+                  </div>
+                  <div className="h-3 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full" style={{width: '90%'}}></div>
+                </div>
+                <div className="mt-6 text-center text-sm text-gray-500">
+                  AI автоматически выравнивает волновые формы
+                </div>
+              </div>
+            </div>
+
+            {/* AI Features List */}
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <div className="bg-blue-100 p-3 rounded-lg">
+                  <span className="text-2xl">🎤</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Умный вокальный процессор</h3>
+                  <p className="text-gray-600">
+                    Автоматически убирает шумы, выравнивает громкость и добавляет 
+                    профессиональную компрессию к вокалу
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="bg-purple-100 p-3 rounded-lg">
+                  <span className="text-2xl">🤖</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Нейросетевая эквализация</h3>
+                  <p className="text-gray-600">
+                    AI анализирует спектр и автоматически настраивает EQ для 
+                    идеального звучания в миксе
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="bg-green-100 p-3 rounded-lg">
+                  <span className="text-2xl">⚡</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Реальное время</h3>
+                  <p className="text-gray-600">
+                    Работает с нулевой задержкой - идеально для живого вокала 
+                    и стриминга
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Voice Processing Demo */}
+      <section className="bg-gray-50 py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
+            Профессиональный вокальный процессор
+          </h2>
+          <p className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Превратите обычный вокал в студийный звук за один клик
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+                <div className="text-4xl mb-4">🎚️</div>
+                <h3 className="text-xl font-semibold mb-3 text-gray-900">Авто-компрессия</h3>
+                <p className="text-gray-600">
+                  Интеллектуальная компрессия подстраивается под динамику вашего голоса
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+                <div className="text-4xl mb-4">🎛️</div>
+                <h3 className="text-xl font-semibold mb-3 text-gray-900">Шумоподавление</h3>
+                <p className="text-gray-600">
+                  Убирает фоновые шумы, вентиляцию и артефакты записи
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+                <div className="text-4xl mb-4">🎵</div>
+                <h3 className="text-xl font-semibold mb-3 text-gray-900">Тональная коррекция</h3>
+                <p className="text-gray-600">
+                  Легкая коррекция интонации без эффекта авто-тюна
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DAW Integration */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              Работает во всех популярных DAW
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Совместимость с более чем 30 цифровыми аудио рабочими станциями
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-6 items-center justify-items-center opacity-60">
+            <div className="text-2xl font-bold text-gray-700">FL Studio</div>
+            <div className="text-2xl font-bold text-gray-700">Ableton</div>
+            <div className="text-2xl font-bold text-gray-700">Cubase</div>
+            <div className="text-2xl font-bold text-gray-700">Logic Pro</div>
+            <div className="text-2xl font-bold text-gray-700">Pro Tools</div>
+            <div className="text-2xl font-bold text-gray-700">Reaper</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-gradient-to-br from-blue-50 to-purple-50 py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+            Отзывы музыкантов
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <div className="text-yellow-400 text-2xl mb-4">★★★★★</div>
+              <p className="text-gray-600 mb-4">
+                "Этот плагин изменил мой подход к сведению вокала. 
+                Теперь я трачу на 80% меньше времени!"
+              </p>
+              <div className="font-semibold text-gray-900">- Алексей, продюсер</div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <div className="text-yellow-400 text-2xl mb-4">★★★★★</div>
+              <p className="text-gray-600 mb-4">
+                "Идеально для живых стримов. AI реально убирает все шумы 
+                без потери качества голоса."
+              </p>
+              <div className="font-semibold text-gray-900">- Мария, вокалистка</div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-lg">
+              <div className="text-yellow-400 text-2xl mb-4">★★★★★</div>
+              <p className="text-gray-600 mb-4">
+                "Как начинающий, я не разбираюсь в сложных настройках. 
+                Sonic VST делает всю работу за меня."
+              </p>
+              <div className="font-semibold text-gray-900">- Дмитрий, музыкант</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="bg-gray-900 py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+            Начните создавать профессиональный звук сегодня
+          </h2>
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Присоединяйтесь к 50,000+ музыкантов, которые уже используют Sonic VST
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link 
+              href="/download" 
+              className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 px-8 py-4 rounded-lg text-lg font-semibold text-white transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              Скачать бесплатно
+            </Link>
+            <Link 
+              href="/features" 
+              className="border border-gray-600 hover:border-gray-400 px-8 py-4 rounded-lg text-lg font-semibold text-gray-300 hover:text-white transition-colors"
+            >
+              Все возможности
+            </Link>
+          </div>
+          
+          <p className="text-gray-400 text-sm mt-6">
+            Бесплатная версия включает все основные функции • Без водяных знаков
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+      </section>
+    </>
+  )
 }
