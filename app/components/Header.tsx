@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import { apiClient } from '../../lib/api' // Добавьте этот импорт
 
 interface User {
   id: number
@@ -51,14 +52,14 @@ export default function Header() {
 
   // Проверка авторизации
   const checkAuth = async () => {
-    try {
-      const response = await fetch('/api/auth/me')
-      if (response.ok) {
-        const userData = await response.json()
-        setUser(userData.user)
+    if (apiClient.isAuthenticated()) {
+      try {
+        const data = await apiClient.getCurrentUser()
+        setUser(data.user)
+      } catch (error) {
+        console.error('Auth check failed:', error)
+        apiClient.logout()
       }
-    } catch (error) {
-      console.error('Auth check failed:', error)
     }
   }
 
@@ -68,28 +69,17 @@ export default function Header() {
     setIsLoading(true)
 
     try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: authForm.email,
-          password: authForm.password
-        })
+      const data = await apiClient.login({
+        email: authForm.email,
+        password: authForm.password
       })
 
-      const data = await response.json()
-
-      if (response.ok) {
-        setUser(data.user)
-        setIsAccountOpen(false)
-        setAuthForm({ email: '', username: '', password: '' })
-      } else {
-        alert(data.error || 'Ошибка входа')
-      }
-    } catch (error) {
-      alert('Ошибка сети')
+      setUser(data.user)
+      setIsAccountOpen(false)
+      setAuthForm({ email: '', username: '', password: '' })
+      alert('Вход выполнен успешно!')
+    } catch (error: any) {
+      alert(error.message || 'Ошибка входа')
     } finally {
       setIsLoading(false)
     }
@@ -101,41 +91,14 @@ export default function Header() {
     setIsLoading(true)
 
     try {
-      const response = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(authForm)
-      })
-
-      const data = await response.json()
-
-      if (response.ok) {
-        // После успешной регистрации автоматически входим
-        const loginResponse = await fetch('/api/auth/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: authForm.email,
-            password: authForm.password
-          })
-        })
-
-        if (loginResponse.ok) {
-          const loginData = await loginResponse.json()
-          setUser(loginData.user)
-          setIsAccountOpen(false)
-          setAuthForm({ email: '', username: '', password: '' })
-          alert('Регистрация прошла успешно! Ваш лицензионный ключ: ' + data.licenseKey)
-        }
-      } else {
-        alert(data.error || 'Ошибка регистрации')
-      }
-    } catch (error) {
-      alert('Ошибка сети')
+      const data = await apiClient.register(authForm)
+      
+      setUser(data.user)
+      setIsAccountOpen(false)
+      setAuthForm({ email: '', username: '', password: '' })
+      alert(`Регистрация прошла успешно! Ваш лицензионный ключ: ${data.user.license_key}`)
+    } catch (error: any) {
+      alert(error.message || 'Ошибка регистрации')
     } finally {
       setIsLoading(false)
     }
@@ -143,13 +106,10 @@ export default function Header() {
 
   // Выход из системы
   const handleLogout = async () => {
-    try {
-      await fetch('/api/auth/logout', { method: 'POST' })
-      setUser(null)
-      setIsAccountOpen(false)
-    } catch (error) {
-      console.error('Logout failed:', error)
-    }
+    await apiClient.logout()
+    setUser(null)
+    setIsAccountOpen(false)
+    alert('Вы вышли из системы')
   }
 
   // Обработка отправки поиска
@@ -562,13 +522,12 @@ export default function Header() {
                     </button>
                   </div>
                 ) : (
-                  <Link 
-                    href="/login" 
+                  <button
+                    onClick={() => setIsAccountOpen(true)}
                     className="text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-                    onClick={() => setIsMenuOpen(false)}
                   >
                     Войти
-                  </Link>
+                  </button>
                 )}
               </div>
             </nav>
