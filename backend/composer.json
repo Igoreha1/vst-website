@@ -1,0 +1,23 @@
+{
+    "name": "yggrrikk/backend",
+    "description": "VST Website Backend API",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Yggrrikk\\Backend\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Igoreha1",
+            "email": "abobusavypva@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "slim/slim": "^4.15",
+        "slim/psr7": "^1.7",
+        "firebase/php-jwt": "^6.11"
+    }
+}

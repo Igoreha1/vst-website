@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import MainLayout from './components/MainLayout'
 
 export default function Home() {
   return (
-    <>
+    <MainLayout>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-50 to-white text-gray-900 py-20">
         <div className="container mx-auto px-4 text-center">
@@ -249,6 +250,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-    </>
+    </MainLayout>
   )
 }

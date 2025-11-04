@@ -1,5 +1,5 @@
 import Link from 'next/link'
-
+import MainLayout from '../components/MainLayout'
 export default function About() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white py-20">
