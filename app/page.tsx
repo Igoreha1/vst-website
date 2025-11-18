@@ -9,7 +9,7 @@ export default function Home() {
       <section className="bg-gradient-to-br from-gray-50 to-white text-gray-900 py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
-            Sonic VST
+            NeoVoice
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-600 max-w-2xl mx-auto">
             Искусственный интеллект для профессионального звука
@@ -212,7 +212,7 @@ export default function Home() {
               <div className="text-yellow-400 text-2xl mb-4">★★★★★</div>
               <p className="text-gray-600 mb-4">
                 "Как начинающий, я не разбираюсь в сложных настройках. 
-                Sonic VST делает всю работу за меня."
+                NeoVoice делает всю работу за меня."
               </p>
               <div className="font-semibold text-gray-900">- Дмитрий, музыкант</div>
             </div>
@@ -227,7 +227,7 @@ export default function Home() {
             Начните создавать профессиональный звук сегодня
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Присоединяйтесь к 50,000+ музыкантов, которые уже используют Sonic VST
+            Присоединяйтесь к 50,000+ музыкантов, которые уже используют NeoVoice
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

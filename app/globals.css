@@ -36,3 +36,16 @@ body {
   background-color: white;
   color: #1f2937;
 }
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table-container {
+  min-width: 100%;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}

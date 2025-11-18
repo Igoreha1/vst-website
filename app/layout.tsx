@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Sonic VST - Профессиональный VST плагин',
+  title: 'NeoVoice - Профессиональный VST плагин',
   description: 'Скачайте профессиональный VST плагин для вашей музыки',
 }
 

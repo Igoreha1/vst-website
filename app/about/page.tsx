@@ -8,13 +8,13 @@ export default function About() {
           ← На главную
         </Link>
 
-        <h1 className="text-4xl md:text-5xl font-bold mb-8">О плагине Sonic VST</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-8">О плагине NeoVoice</h1>
         
         <div className="space-y-8">
           <section className="bg-gray-800 rounded-lg p-6">
             <h2 className="text-2xl font-semibold mb-4">🎵 Что это?</h2>
             <p className="text-gray-300 text-lg">
-              Sonic VST — это профессиональный аудио плагин, созданный для музыкантов, 
+              NeoVoice — это профессиональный аудио плагин, созданный для музыкантов, 
               продюсеров и звукоинженеров. Мы предлагаем уникальные алгоритмы обработки 
               звука с минимальной нагрузкой на процессор.
             </p>
@@ -35,7 +35,7 @@ export default function About() {
             <h2 className="text-2xl font-semibold mb-4">📞 Контакты</h2>
             <p className="text-gray-300">
               По вопросам сотрудничества и поддержки: <br />
-              Email: support@sonicvst.com
+              Email: support@NeoVoice.com
             </p>
           </section>
         </div>

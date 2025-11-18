@@ -8,19 +8,19 @@ export default function Download() {
 
   const downloadLinks = {
     windows: {
-      url: '/downloads/sonic-vst-windows.zip',
+      url: '/downloads/NeoVoice-vst-windows.zip',
       size: '45 MB',
       version: 'v1.0.0',
       requirements: 'Windows 10+ • 64-bit'
     },
     mac: {
-      url: '/downloads/sonic-vst-mac.dmg',
+      url: '/downloads/NeoVoice-vst-mac.dmg',
       size: '52 MB',
       version: 'v1.0.0',
       requirements: 'macOS 11+ • Apple Silicon/Intel'
     },
     linux: {
-      url: '/downloads/sonic-vst-linux.tar.gz',
+      url: '/downloads/NeoVoice-vst-linux.tar.gz',
       size: '48 MB',
       version: 'v1.0.0',
       requirements: 'Ubuntu 18.04+ • 64-bit'
@@ -48,7 +48,7 @@ export default function Download() {
               </svg>
               На главную
             </Link>
-            <div className="text-sm text-gray-500">Sonic VST {downloadLinks[os].version}</div>
+            <div className="text-sm text-gray-500">NeoVoice {downloadLinks[os].version}</div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -56,7 +56,7 @@ export default function Download() {
             <div className="lg:col-span-2">
               <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
                 <h1 className="text-3xl md:text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
-                  Скачать Sonic VST
+                  Скачать NeoVoice
                 </h1>
                 <p className="text-lg text-gray-600 mb-8">
                   Бесплатный VST плагин с искусственным интеллектом для профессионального звука
@@ -98,7 +98,7 @@ export default function Download() {
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        Sonic VST {downloadLinks[os].version}
+                        NeoVoice {downloadLinks[os].version}
                       </h3>
                       <div className="space-y-1 text-gray-600">
                         <div className="flex items-center space-x-2">
@@ -141,11 +141,11 @@ export default function Download() {
                         </div>
                         <div className="flex items-start space-x-3">
                           <span className="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-semibold mt-0.5">2</span>
-                          <p>Скопируйте файл <code className="bg-gray-200 px-1 rounded">SonicVST.dll</code> в папку VST плагинов вашей DAW</p>
+                          <p>Скопируйте файл <code className="bg-gray-200 px-1 rounded">NeoVoice.dll</code> в папку VST плагинов вашей DAW</p>
                         </div>
                         <div className="flex items-start space-x-3">
                           <span className="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-semibold mt-0.5">3</span>
-                          <p>Перезапустите DAW и найдите Sonic VST в списке плагинов</p>
+                          <p>Перезапустите DAW и найдите NeoVoice в списке плагинов</p>
                         </div>
                       </>
                     )}
@@ -153,7 +153,7 @@ export default function Download() {
                       <>
                         <div className="flex items-start space-x-3">
                           <span className="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-semibold mt-0.5">1</span>
-                          <p>Откройте файл <code className="bg-gray-200 px-1 rounded">SonicVST.dmg</code></p>
+                          <p>Откройте файл <code className="bg-gray-200 px-1 rounded">NeoVoice.dmg</code></p>
                         </div>
                         <div className="flex items-start space-x-3">
                           <span className="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-semibold mt-0.5">2</span>
@@ -161,7 +161,7 @@ export default function Download() {
                         </div>
                         <div className="flex items-start space-x-3">
                           <span className="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-semibold mt-0.5">3</span>
-                          <p>Перезапустите DAW и найдите Sonic VST в списке плагинов</p>
+                          <p>Перезапустите DAW и найдите NeoVoice в списке плагинов</p>
                         </div>
                       </>
                     )}
@@ -169,15 +169,15 @@ export default function Download() {
                       <>
                         <div className="flex items-start space-x-3">
                           <span className="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-semibold mt-0.5">1</span>
-                          <p>Распакуйте архив: <code className="bg-gray-200 px-1 rounded">tar -xzf sonic-vst-linux.tar.gz</code></p>
+                          <p>Распакуйте архив: <code className="bg-gray-200 px-1 rounded">tar -xzf NeoVoice-linux.tar.gz</code></p>
                         </div>
                         <div className="flex items-start space-x-3">
                           <span className="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-semibold mt-0.5">2</span>
-                          <p>Скопируйте файл <code className="bg-gray-200 px-1 rounded">SonicVST.so</code> в папку VST</p>
+                          <p>Скопируйте файл <code className="bg-gray-200 px-1 rounded">NeoVoice.so</code> в папку VST</p>
                         </div>
                         <div className="flex items-start space-x-3">
                           <span className="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-semibold mt-0.5">3</span>
-                          <p>Перезапустите DAW и найдите Sonic VST в списке плагинов</p>
+                          <p>Перезапустите DAW и найдите NeoVoice в списке плагинов</p>
                         </div>
                       </>
                     )}
