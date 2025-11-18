@@ -30,7 +30,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/download" className="text-gray-600 hover:text-blue-600 transition-colors">
-                  Sonic Access
+                  NeoVoice Access
                 </Link>
               </li>
               <li>
@@ -178,7 +178,7 @@ export default function Footer() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="column1 text-gray-600 text-sm">
-              © 2024 Sonic VST Company
+              © 2025 NeoVoice VST Company
             </div>
             
             <div className="column2 flex flex-wrap justify-center space-x-4 text-sm">

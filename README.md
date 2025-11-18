@@ -117,3 +117,7 @@ npm run lint         # Проверка кода ESLint
 # Бэкенд
 composer install     # Установка PHP зависимостей
 composer update      # Обновление зависимостей
+
+~/Projects/preddiplom/vst-website/backend$ php -S localhost:8000 -t public
+
+~/Projects/preddiplom/vst-website$ npm run dev

@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 export default function AdminAuth() {
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
@@ -17,20 +17,18 @@ export default function AdminAuth() {
     setError('')
 
     try {
-      // Здесь будет запрос к PHP бэкенду для админской авторизации
       const response = await fetch('http://localhost:8000/api/admin/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email, password }), // Изменил username на email
       })
 
       const data = await response.json()
 
       if (response.ok) {
-        // Сохраняем токен и перенаправляем в админку
-        document.cookie = `admin_token=${data.token}; path=/; max-age=86400` // 24 часа
+        document.cookie = `admin_token=${data.token}; path=/; max-age=86400`
         router.push('/admin')
       } else {
         setError(data.error || 'Ошибка авторизации')
@@ -45,16 +43,13 @@ export default function AdminAuth() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl border border-gray-200">
-        {/* Заголовок как в Битриксе */}
         <div className="bg-blue-600 rounded-t-2xl p-6 text-center">
           <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-2xl font-bold text-blue-600">A</span>
           </div>
           <h1 className="text-2xl font-bold text-white">Административная панель</h1>
-          <p className="text-blue-100 mt-2">Sonic VST</p>
         </div>
 
-        {/* Форма авторизации */}
         <div className="p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             {error && (
@@ -66,16 +61,16 @@ export default function AdminAuth() {
             )}
 
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">
-                Логин администратора
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                Email администратора {/* Изменил текст */}
               </label>
               <input
-                id="username"
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                id="email"
+                type="email" // Изменил type на email
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Введите логин"
+                placeholder="Введите email" // Изменил placeholder
                 required
               />
             </div>
@@ -111,11 +106,10 @@ export default function AdminAuth() {
             </button>
           </form>
 
-          {/* Дополнительная информация */}
           <div className="mt-6 pt-6 border-t border-gray-200">
             <div className="text-center text-sm text-gray-500">
               <p>Для доступа требуется административный доступ</p>
-              <p className="mt-1">По вопросам обращайтесь к технической поддержке</p>
+              <p className="mt-1">Используйте email и пароль пользователя с ролью admin</p> {/* Обновил текст */}
             </div>
           </div>
         </div>
